@@ -5,8 +5,9 @@ import time
 # options
 options = webdriver.FirefoxOptions()
 
-# user-agent
-options.set_preference("general.useragent.override", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
+# user-agent for LINUX
+options.set_preference("general.useragent.override",
+                       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
 
 # disable webdriver mode
 options.set_preference("dom.webdriver.enabled", False)
@@ -54,11 +55,13 @@ try:
     driver.switch_to.window(driver.window_handles[1])
     time.sleep(5)
     print(f"Currently URL is: {driver.current_url}")
-    username = driver.find_element_by_xpath("//div[@data-marker='seller-info/name']")
+    username = driver.find_element_by_xpath(
+        "//div[@data-marker='seller-info/name']")
     print(f"User name is: {username.text}")
     print("-" * 20)
 
-    ad_date = driver.find_element_by_class_name("title-info-metadata-item-redesign")
+    ad_date = driver.find_element_by_class_name(
+        "title-info-metadata-item-redesign")
     print(f"An ad date is: {ad_date.text}")
     print("-" * 20)
 

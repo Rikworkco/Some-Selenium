@@ -7,8 +7,9 @@ import pickle
 # options
 options = webdriver.FirefoxOptions()
 
-# user-agent
-options.set_preference("general.useragent.override", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
+# user-agent for LINUX
+options.set_preference("general.useragent.override",
+                       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
 
 # disable webdriver mode
 options.set_preference("dom.webdriver.enabled", False)
@@ -48,7 +49,8 @@ try:
     time.sleep(5)
 
     print("Unmuting audio...")
-    unmute_audio = driver.find_element_by_xpath("/html/body/div[1]/section/main/div/div[1]/article/div[2]/div/div/span/div")
+    unmute_audio = driver.find_element_by_xpath(
+        "/html/body/div[1]/section/main/div/div[1]/article/div[2]/div/div/span/div")
     unmute_audio.click()
     time.sleep(5)
     print("Finish watching the video...")

@@ -7,8 +7,9 @@ import pickle
 # options
 options = webdriver.ChromeOptions()
 
-# user-agent
-options.add_argument("user-agent=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
+# user-agent for LINUX
+options.add_argument(
+    "user-agent=Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
 
 # for ChromeDriver version 79.0.3945.16 or over
 options.add_argument("--disable-blink-features=AutomationControlled")
@@ -49,11 +50,13 @@ try:
     time.sleep(5)
 
     print("Click on the comment icon...")
-    comment_icon = driver.find_element_by_class_name("_comment").find_element_by_class_name("like_button_icon").click()
+    comment_icon = driver.find_element_by_class_name(
+        "_comment").find_element_by_class_name("like_button_icon").click()
     time.sleep(5)
 
     print("Writing a comment...")
-    driver.find_elements_by_class_name("submit_post_field")[1].send_keys("Hey! I was here! (.)(.)" + Keys.ENTER)
+    driver.find_elements_by_class_name("submit_post_field")[1].send_keys(
+        "Hey! I was here! (.)(.)" + Keys.ENTER)
     time.sleep(5)
     print("The work is done! Bye, dude!")
 

@@ -7,8 +7,9 @@ import random
 # options
 options = webdriver.FirefoxOptions()
 
-# user-agent
-options.set_preference("general.useragent.override", "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
+# user-agent for LINUX
+options.set_preference("general.useragent.override",
+                       "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:84.0) Gecko/20100101 Firefox/84.0")
 
 # disable webdriver mode
 options.set_preference("dom.webdriver.enabled", False)
@@ -28,7 +29,8 @@ def get_data(url):
         # r"C:\users\selenium_python\chromedriver\chromedriver.exe"
         driver.get(url=url)
         time.sleep(5)
-        driver.find_element_by_class_name("lazyload-wrapper").find_element_by_class_name("item-video-container").click()
+        driver.find_element_by_class_name(
+            "lazyload-wrapper").find_element_by_class_name("item-video-container").click()
         time.sleep(random.randrange(3, 10))
     except Exception as ex:
         print(ex)
